@@ -1,21 +1,24 @@
 ﻿#include<iostream>
+#include <string>
 using namespace std;
 
 class Figure {
 	int side = 0;
+	string name = "Фигура: ";
 public:
 	int n;
-	Figure(int n ) : side(n) {}
+	Figure(int n, string f) : side(n), name(f) {}
 	Figure(){}
 	int getx() { return side;}
+	string gets() { return name; }
 };
 class Triangle : public Figure {
 public: 
-	Triangle() :Figure(3) {}
+	Triangle() :Figure(3, "Треугольник: ") {}
 };
 class Quadrilateral:public Figure{
 public:
-	Quadrilateral ():Figure(4){}
+	Quadrilateral ():Figure(4, "Четырехугольник: ") {}
 };
 
 int main() {
@@ -24,11 +27,11 @@ int main() {
 
 	cout << "Количество сторон:" << endl;
 	Figure fig;
-	cout << "Фигура: " << fig.getx() << endl;
+	cout <<  fig.gets() << fig.getx() << endl;
 
 	Triangle tri;
-	cout << "Треугольник: " << tri.getx() << endl;
+	cout << tri.gets()  << tri.getx() << endl;
 
 	Quadrilateral qua;
-	cout << "Четырёхугольник: " << qua.getx() << endl;
+	cout << qua.gets()  << qua.getx() << endl;
 }
